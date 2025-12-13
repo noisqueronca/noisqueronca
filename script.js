@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
             src: "assets/music/song2.mp4"
         },
             {
-            title: "Lil Peep",
-            artist: "nuts",
+            title: "Nuts,
+            artist: "Lil Peep"",
             media: {
                 type: "image",
                 source: "assets/images/music3.jpg"
@@ -309,3 +309,4 @@ setInterval(function() {
     document.title = titles[index];
     index = (index + 1) % titles.length;
 }, 300);
+
