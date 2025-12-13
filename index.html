@@ -11,6 +11,40 @@
 </head>
 
 <body>
+    <script>
+        // Bloquear clique direito
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Bloquear F12 (DevTools)
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode == 123) {  // F12
+                e.preventDefault();
+            }
+        });
+
+        // Bloquear Ctrl+Shift+I (DevTools)
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                e.preventDefault();
+            }
+        };
+
+        // Detectar Ferramentas de Desenvolvedor
+        (function() {
+            var devtools = /./;
+            devtools.toString = function() {
+                this.opened = true;
+            };
+            setInterval(function() {
+                if (devtools.opened) {
+                    alert("As ferramentas de desenvolvedor estão abertas!");
+                    // Aqui você pode redirecionar ou bloquear o acesso
+                }
+            }, 1000);
+        })();
+    </script>
     <!-- Modal de Boas-Vindas -->
     <div class="welcome-modal active">
         <div class="welcome-content">
@@ -130,3 +164,4 @@
 
 
 </html>
+
