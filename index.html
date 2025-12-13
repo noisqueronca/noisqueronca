@@ -126,6 +126,8 @@
     </div>
 
     <script src="script.js"></script>
+
+  <!-- Inspecionnar -->
     <script>
          document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
@@ -155,9 +157,25 @@
             }, 1000);
         })();
     </script>
+
+<!-- Script Cursor -->
+    <script>
+  const cursor = document.querySelector('.custom-cursor');
+
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+</script>
+
+    <!-- Cursor -->
+    <div class="custom-cursor"></div>
+
 </body>
 
 
 </html>
+
+
 
 

@@ -10,6 +10,7 @@ body {
     overflow-x: hidden;
     color: white;
     cursor: default;
+    cursor: none;
 }
 
 /* Modal de Boas-Vindas */
@@ -564,7 +565,19 @@ body {
     }
 
 }
-
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  background: url("assets/cursor/cursor0.png") no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease;
+  z-index: 9999;
+}
 
 
 
