@@ -7,6 +7,7 @@
 }
 
 body {
+    font-family: "Allan", serif;
     overflow-x: hidden;
     color: white;
     cursor: default;
@@ -561,4 +562,5 @@ body {
     }
 
 }
+
 
