@@ -45,6 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 source: "assets/images/music2.jpg"
             },
             src: "assets/music/song2.mp4"
+        },
+            {
+            title: "Lil Peep",
+            artist: "nuts",
+            media: {
+                type: "image",
+                source: "assets/images/music3.jpg"
+            },
+            src: "assets/music/song3.mp4"
         }
     ];
 
