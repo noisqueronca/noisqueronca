@@ -241,6 +241,7 @@ body {
 /* Card de Perfil */
 
 .profile-card {
+    font-family: "Allan", serif;
     width: 300px;
     height: 500px;
     display: flex;
@@ -560,3 +561,4 @@ body {
     }
 
 }
+
