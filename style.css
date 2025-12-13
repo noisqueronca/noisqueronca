@@ -1,0 +1,560 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    color: white;
+    cursor: default;
+}
+
+/* Modal de Boas-Vindas */
+
+.welcome-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.welcome-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.welcome-content {
+    text-align: center;
+    padding: 30px;
+    max-width: 80%;
+}
+
+.welcome-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bg-video {
+    position: absolute;
+    /* Mantém aspect ratio mas mostra 100% do vídeo */
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    /* Centraliza */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* Alternativa para preencher totalmente (pode cortar partes) */
+    /* object-fit: cover; */
+    /* Nova propriedade para mostrar 100% do vídeo */
+    object-fit: contain;
+    background-color: #000;
+    /* Cor de fundo para as bordas */
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    gap: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px) perspective(1000px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Card de Música */
+
+.music-card {
+    width: 260px;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-container {
+    position: relative;
+    height: 150px;
+    margin: 15px 15px 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.music-banner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.video-banner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    /* Inicialmente escondido */
+}
+
+.music-info {
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.music-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.music-artist {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.music-player {
+    padding: 0 20px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    border-radius: 2px;
+    margin: 5px 0;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 10px 0;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.control-btn:hover {
+    transform: scale(1.2);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.volume-icon {
+    font-size: 18px;
+}
+
+.volume-bar {
+    flex-grow: 1;
+    height: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    border-radius: 2px;
+}
+
+.volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+
+/* Card de Perfil */
+
+.profile-card {
+    width: 300px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-banner {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.profile-content {
+    position: relative;
+    padding: 0 20px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: url('../assets/images/profile-pic.') center/cover;
+    /* Adicione esta linha */
+    margin: -40px 0 0 20px;
+    border: 3px solid rgba(255, 255, 255, 0.329);
+    position: absolute;
+    left: 20px;
+}
+
+.profile-info {
+    padding: 50px 20px 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.verified {
+    color: #1DA1F2;
+    font-size: 18px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-btn:hover {
+    transform: scale(1.2);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.social-phrase {
+    font-size: 14px;
+    margin: 0 0 20px;
+    opacity: 0.8;
+}
+
+.profile-info p {
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    font-size: 15px;
+}
+
+.info-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 12px 0;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.info-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Card de Setup */
+
+.setup-card {
+    width: 300px;
+    min-height: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.setup-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.setup-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.setup-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    aspect-ratio: 1/1;
+    /* Mantém proporção quadrada */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.setup-item:hover {
+    transform: scale(1.05);
+}
+
+.item-icon {
+    font-size: 30px;
+    color: #dfdfdf;
+}
+
+.item-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.item-desc {
+    font-size: 12px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.item-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    align-self: center;
+}
+
+.item-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Modal de Informações */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    animation: modalFadeIn 0.5s ease forwards;
+}
+
+.modal-overlay.closing .modal-container {
+    animation: modalFadeOut 0.5s ease forwards;
+}
+
+.modal-card {
+    background: #333;
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+
+.modal-close-btn {
+    background: #4facfe;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-close-btn:hover {
+    background: #3a8fd4;
+    transform: translateY(-3px);
+}
+
+/* Animações */
+
+@keyframes modalFadeIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+/* Responsividade */
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 20px 10px;
+    }
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+    .setup-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .card {
+        width: 100%;
+        max-width: 100%;
+    }
+    .music-card,
+    .profile-card {
+        height: auto;
+    }
+    .welcome-content h1 {
+        font-size: 2rem;
+    }
+    .welcome-content p {
+        font-size: 1rem;
+    }
+}

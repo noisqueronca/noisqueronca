@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/images/xz.png" type="image/x-icon">
+    <title>061</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Modal de Boas-Vindas -->
+    <div class="welcome-modal active">
+        <div class="welcome-content">
+            <h1>Toque para continuar</h1>
+            <p>Tap to continue</p>
+        </div>
+    </div>
+
+    <div class="video-background">
+        <video loop autoplay muted id="bg-video">
+            <source src="assets/videos/background.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+    </div>
+
+    <div class="container">
+        <!-- Card 1 - Player de Música (atualizado) -->
+        <div class="card music-card">
+            <div class="media-container">
+                <!-- Elemento para imagem (fallback) -->
+                <div class="music-banner"></div>
+                <!-- Elemento para vídeo -->
+                <video class="video-banner" muted loop></video>
+            </div>
+            <div class="music-info">
+                <h2 class="music-title">Nome da Música</h2>
+                <p class="music-artist">Artista</p>
+            </div>
+            <div class="music-player">
+                <input type="range" class="progress-bar" value="0">
+                <div class="music-controls">
+                    <button class="control-btn prev-btn"><i class="fas fa-backward"></i></button>
+                    <button class="control-btn play-btn"><i class="fas fa-play"></i></button>
+                    <button class="control-btn next-btn"><i class="fas fa-forward"></i></button>
+                </div>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up volume-icon"></i>
+                    <input type="range" class="volume-bar" min="0" max="100" value="80">
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 - Perfil (alterado) -->
+        <div class="card profile-card">
+            <div class="profile-banner"></div>
+            <div class="profile-content">
+                <div class="profile-pic"></div>
+                <div class="profile-info">
+                    <h2>pino <span class="verified"><i class="fas fa-check-circle"></i></span></h2>
+                    <p class="social-phrase">Não te deixes vencer pelo mal, mas vence o mal com o bem.</p>
+                    <p class="social-phrase">Romanos 12:21</p>
+                    <div class="social-buttons">
+                        <a href="https://www.instagram.com/noisqueronca" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.twitch.tv/noisqueronca" class="social-btn twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="https://www.youtube.com/channel/UCxHvWdQ-ijHx823AHQK6v_g" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://discord.com/users/865736941134938132" class="social-btn discord"><i class="fab fa-discord"></i></a>
+                    </div>
+
+                    <button class="info-btn">Informations</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 - Setup (alterado) -->
+        <div class="card setup-card">
+            <h2 class="setup-title">SETUP</h2>
+            <div class="setup-items">
+                <div class="setup-item">
+                    <div class="item-icon"><i class="fas fa-microchip"></i></div>
+                    <h3 class="item-title">Ryzen 5 4500</h3>
+                    <p class="item-desc">4.1 GHz</p>
+                    <button class="item-btn" data-link="https://www.amd.com/pt/support/downloads/drivers.html/processors/ryzen/ryzen-4000-series/amd-ryzen-5-4500.html">Ver
+                        mais</button>
+                </div>
+                <div class="setup-item">
+                    <div class="item-icon"><i class="fas fa-desktop"></i></div>
+                    <h3 class="item-title">Radeon RX 580 </h3>
+                    <p class="item-desc">8 GB</p>
+                    <bu<button class="item-btn" data-link="https://www.amd.com/pt/support/downloads/drivers.html/graphics/radeon-600-500-400/radeon-rx-500-series/radeon-rx-580.html">Ver
+                        mais</button>
+                </div>
+                <div class="setup-item">
+                    <div class="item-icon"><i class="fas fa-memory"></i></div>
+                    <h3 class="item-title">16GB</h3>
+                    <p class="item-desc">DDR4 3200MHz</p>
+                    <button class="item-btn" data-link="https://www.amazon.com.br/Mem%C3%B3ria-Desktop-Gamer-XPG-Gammix/dp/B0C69V5N6W/ref=asc_df_B0C69V5N6W?mcid=dcd4ffdde3fa3a8fb1e174ffbf115e90&tag=googleshopp00-20&linkCode=df0&hvadid=709884378160&hvpos=&hvnetw=g&hvrand=11078399530012719225&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9219142&hvtargid=pla-2203817874845&psc=1&language=pt_BR&gad_source=1">Ver
+                        mais</button>
+                </div>
+                <div class="setup-item">
+                    <div class="item-icon"><i class="fas fa-hdd"></i></div>
+                    <h3 class="item-title">SSD Kingston</h3>
+                    <p class="item-desc">480GB</p>
+                    <button class="item-btn" data-link="https://www.kabum.com.br/produto/943831/ssd-kingston-a400-480gb-sata-iii-2-5-leitura-500mb-s-gravacao-450mb-s-preto-kc-s44480-7s?gclsrc=aw.ds&&utm_id=22429436066&gad_source=1&gad_campaignid=22429436066&gclid=CjwKCAiAl-_JBhBjEiwAn3rN7QeIElcyrucSAAVkli-n2hrSzoANJ1vqNI4Tjs-T4uUDx1csXXQpcxoC-64QAvD_BwE">Ver
+                        mais</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal de Informações -->
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-card">
+                <h2 class="modal-title">INFORMAÇÕES</h2>
+                <p class="modal-text">
+                    A única coisa que separa você dos seus objetivos são as desculpas que você dá a você para evitar o sucesso.
+                </p>
+                <div class="modal-divider"></div>
+                <button class="modal-close-btn">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
