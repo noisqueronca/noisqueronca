@@ -247,7 +247,8 @@ body {
     flex-direction: column;
 }
 .profile-card p {
-  font-family: "Allan", serif;  
+  font-family: "Allan", serif;
+  font-size: 30px;
 }
 
 .profile-banner {
@@ -563,6 +564,7 @@ body {
     }
 
 }
+
 
 
 
